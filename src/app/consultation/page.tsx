@@ -1,9 +1,44 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 
 export default function ConsultationPage() {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      agency: formData.get('agency'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      interest: formData.get('interest'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen pb-24">
-      {/* HERO SECTION */}
       <section className="bg-[#0B1E36] py-20 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
@@ -15,69 +50,49 @@ export default function ConsultationPage() {
         </div>
       </section>
 
-      {/* FORM SECTION */}
       <section className="max-w-3xl mx-auto px-6 lg:px-8 -mt-10 relative z-20">
         <div className="bg-white rounded-xl shadow-2xl border border-gray-200 p-8 md:p-12">
-          <form className="space-y-6">
-            
+          
+          {status === 'success' && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md">
+              Inquiry submitted successfully. Our team will contact you shortly.
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md">
+              There was an error submitting your inquiry. Please try again.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-bold text-[#0B1E36] mb-2">Full Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors"
-                  placeholder="Officer John Doe"
-                  required
-                />
+                <input type="text" id="name" name="name" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors" placeholder="Officer John Doe" required />
               </div>
               
-              {/* Agency */}
               <div>
                 <label htmlFor="agency" className="block text-sm font-bold text-[#0B1E36] mb-2">Agency / Department</label>
-                <input 
-                  type="text" 
-                  id="agency" 
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors"
-                  placeholder="Metropolitan Police Dept."
-                  required
-                />
+                <input type="text" id="agency" name="agency" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors" placeholder="Metropolitan Police Dept." required />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-bold text-[#0B1E36] mb-2">Official Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors"
-                  placeholder="j.doe@agency.gov"
-                  required
-                />
+                <input type="email" id="email" name="email" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors" placeholder="j.doe@agency.gov" required />
               </div>
               
-              {/* Phone */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-bold text-[#0B1E36] mb-2">Phone Number</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors"
-                  placeholder="(555) 123-4567"
-                />
+                <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors" placeholder="(555) 123-4567" />
               </div>
             </div>
 
-            {/* Area of Interest */}
             <div>
               <label htmlFor="interest" className="block text-sm font-bold text-[#0B1E36] mb-2">Primary Area of Interest</label>
-              <select 
-                id="interest" 
-                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors bg-white text-gray-700"
-              >
+              <select id="interest" name="interest" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors bg-white text-gray-700">
                 <option value="governance">AI Policy & Governance</option>
                 <option value="implementation">Secure Implementation & Audits</option>
                 <option value="training">Operational Training</option>
@@ -85,25 +100,14 @@ export default function ConsultationPage() {
               </select>
             </div>
 
-            {/* Message */}
             <div>
               <label htmlFor="message" className="block text-sm font-bold text-[#0B1E36] mb-2">Message or Operational Details</label>
-              <textarea 
-                id="message" 
-                rows={5}
-                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors resize-none"
-                placeholder="Briefly describe your agency's current infrastructure or goals..."
-                required
-              ></textarea>
+              <textarea id="message" name="message" rows={5} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-colors resize-none" placeholder="Briefly describe your agency's current infrastructure or goals..." required></textarea>
             </div>
 
-            {/* Submit Button */}
             <div className="pt-4">
-              <button 
-                type="button" 
-                className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2"
-              >
-                Submit Inquiry
+              <button disabled={status === 'submitting'} type="submit" className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2 disabled:opacity-50">
+                {status === 'submitting' ? 'Submitting...' : 'Submit Inquiry'}
               </button>
             </div>
             
