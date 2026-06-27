@@ -87,6 +87,48 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* 4. THE REALITY GAP (WHY US) */}
+      <section className="bg-[#0B1E36] text-white py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-extrabold sm:text-4xl mb-6">
+                The Reality Gap: <br/>
+                <span className="text-[#00D4FF]">We Know The Workflow.</span>
+              </h2>
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                Most AI consultants understand algorithms; we understand the operational reality of the criminal justice system. With over a decade of frontline and software training experience, we know exactly what is at stake.
+              </p>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                From the 911 dispatcher's console and secure detention facilities to active investigations, our frameworks are built for actual law enforcement operations. We integrate AI governance safely alongside mission-critical ecosystems like Flex, Mobile Video, Command Central, and Spillman so your workflows are enhanced, never disrupted.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-[#00D4FF]/20 flex items-center justify-center text-[#00D4FF] mr-3">✓</span>
+                  <span className="text-gray-200">Hands-on criminal justice experience</span>
+                </li>
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-[#00D4FF]/20 flex items-center justify-center text-[#00D4FF] mr-3">✓</span>
+                  <span className="text-gray-200">Expertise in mission-critical software onboarding</span>
+                </li>
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-[#00D4FF]/20 flex items-center justify-center text-[#00D4FF] mr-3">✓</span>
+                  <span className="text-gray-200">Tailored implementation for public safety agencies</span>
+                </li>
+              </ul>
+            </div>
+            {/* Visual Placeholder */}
+            <div className="relative h-full min-h-[400px] rounded-xl overflow-hidden border border-[#475569]/50 bg-[#475569]/10 flex items-center justify-center shadow-2xl">
+               <div className="text-center p-8">
+                 <div className="w-16 h-16 border-2 border-[#00D4FF] rounded-full flex items-center justify-center mx-auto mb-4 opacity-50 animate-pulse">
+                   <span className="text-[#00D4FF] text-xl font-bold">AI</span>
+                 </div>
+                 <p className="text-gray-400 font-medium uppercase tracking-widest text-sm">[Operational Environment Image]</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
