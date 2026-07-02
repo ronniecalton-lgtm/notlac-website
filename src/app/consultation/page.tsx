@@ -1,42 +1,6 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function ConsultationPage() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('submitting');
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      agency: formData.get('agency'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      interest: formData.get('interest'),
-      message: formData.get('message'),
-    };
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-  };
-
   return (
     <div className="bg-gray-50 min-h-screen pb-24">
       <section className="bg-[#0B1E36] py-20 relative overflow-hidden">
@@ -53,19 +17,7 @@ export default function ConsultationPage() {
       <section className="max-w-3xl mx-auto px-6 lg:px-8 -mt-10 relative z-20">
         <div className="bg-white rounded-xl shadow-2xl border border-gray-200 p-8 md:p-12">
           
-          {status === 'success' && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md">
-              Inquiry submitted successfully. Our team will contact you shortly.
-            </div>
-          )}
-
-          {status === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md">
-              There was an error submitting your inquiry. Please try again.
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-bold text-[#0B1E36] mb-2">Full Name</label>
@@ -106,8 +58,9 @@ export default function ConsultationPage() {
             </div>
 
             <div className="pt-4">
-              <button disabled={status === 'submitting'} type="submit" className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2 disabled:opacity-50">
-                {status === 'submitting' ? 'Submitting...' : 'Submit Inquiry'}
+              {/* Changed back to type="button" so it doesn't trigger a page reload or submission */}
+              <button type="button" onClick={() => alert("Backend integration pending. Please email us directly for now.")} className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2">
+                Submit Inquiry
               </button>
             </div>
             
