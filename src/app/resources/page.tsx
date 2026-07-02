@@ -26,10 +26,10 @@ export default function ResourcesPage() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
             <div className="lg:w-2/5 bg-[#0B1E36] p-10 flex flex-col justify-center relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-[#00D4FF]"></div>
-              <div className="text-[#00D4FF] text-sm font-bold tracking-widest uppercase mb-4">Featured Framework</div>
-              <h2 className="text-2xl font-bold text-white mb-4">Assessing AI for Criminal Justice: A User Decision Framework</h2>
+              <div className="text-[#00D4FF] text-sm font-bold tracking-widest uppercase mb-4">Featured Whitepaper</div>
+              <h2 className="text-2xl font-bold text-white mb-4">The 2026 Guide to CJIS-Compliant Generative AI</h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Developed by the Council on Criminal Justice (CCJ), this comprehensive framework guides law enforcement and justice system leaders in evaluating and implementing AI technologies responsibly.
+                A comprehensive breakdown of how modern large language models interact with Criminal Justice Information Services (CJIS) security policies, and the architectural safeguards required for deployment.
               </p>
             </div>
             <div className="lg:w-3/5 p-10 flex flex-col justify-center">
@@ -37,25 +37,24 @@ export default function ResourcesPage() {
               <ul className="space-y-3 text-gray-600 mb-8">
                 <li className="flex items-start gap-3">
                   <span className="text-[#00D4FF] mt-1">✓</span>
-                  A structured approach to determining if AI is the right solution for specific operational challenges.
+                  Mapping the NIST AI RMF to law enforcement environments.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#00D4FF] mt-1">✓</span>
-                  Key questions regarding vendor transparency, data training, and algorithmic bias.
+                  Data sovereignty and cloud infrastructure requirements.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#00D4FF] mt-1">✓</span>
-                  Guidance on community engagement and managing legal/ethical risks during deployment.
+                  Mitigating legal liability in AI-assisted report writing.
                 </li>
               </ul>
               <div>
                 <a 
-                  href="https://counciloncj.org/assessing-ai-for-criminal-justice-a-user-decision-framework/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/resources/Notlac_CJIS_Guide_2026.pdf" 
+                  download="Notlac_CJIS_Guide_2026.pdf"
                   className="inline-block bg-[#0B1E36] text-white px-6 py-3 rounded-md font-bold hover:bg-[#475569] transition-colors shadow-md"
                 >
-                  View Framework via CCJ
+                  Download PDF Framework
                 </a>
               </div>
             </div>
