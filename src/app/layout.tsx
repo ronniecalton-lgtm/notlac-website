@@ -6,7 +6,7 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Notlac, Inc. | Public Safety AI Consulting',
+  title: 'Notlac | Public Safety AI Consulting',
   description: 'NIST Operational Training & Law-enforcement AI Consulting',
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({
                     <span className="text-[#0B1E36] font-bold text-xl">N</span>
                   </div>
                   <span className="text-white font-extrabold text-2xl tracking-tight">
-                    NOTLAC<span className="font-light text-gray-400 text-sm ml-1">Inc.</span>
+                    NOTLAC
                   </span>
                 </Link>
               </div>
@@ -67,7 +67,7 @@ export default function RootLayout({
                     <span className="text-[#0B1E36] font-bold text-sm">N</span>
                   </div>
                   <span className="text-white font-extrabold text-xl tracking-tight">
-                    NOTLAC<span className="font-light text-gray-400 text-xs ml-1">Inc.</span>
+                    NOTLAC
                   </span>
                 </Link>
                 <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -98,7 +98,7 @@ export default function RootLayout({
             {/* SUB-FOOTER WITH LEGAL LINKS */}
             <div className="pt-8 border-t border-[#475569]/30 flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex flex-col md:flex-row items-center gap-4 text-gray-500 text-xs">
-                <p>&copy; {new Date().getFullYear()} Notlac, Inc. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Notlac, LLC. All rights reserved.</p>
                 <div className="hidden md:block w-1 h-1 bg-gray-600 rounded-full"></div>
                 <div className="flex space-x-4">
                   <Link href="/legal" className="hover:text-[#00D4FF] transition-colors">Legal Notice</Link>
