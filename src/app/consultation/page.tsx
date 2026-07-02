@@ -58,8 +58,7 @@ export default function ConsultationPage() {
             </div>
 
             <div className="pt-4">
-              {/* Changed back to type="button" so it doesn't trigger a page reload or submission */}
-              <button type="button" onClick={() => alert("Backend integration pending. Please email us directly for now.")} className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2">
+              <button type="button" className="w-full bg-[#0B1E36] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[#475569] transition-colors shadow-lg flex justify-center items-center gap-2">
                 Submit Inquiry
               </button>
             </div>
