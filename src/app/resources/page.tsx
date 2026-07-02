@@ -49,9 +49,13 @@ export default function ResourcesPage() {
                 </li>
               </ul>
               <div>
-                <button className="bg-[#0B1E36] text-white px-6 py-3 rounded-md font-bold hover:bg-[#475569] transition-colors shadow-md">
+                <a 
+                  href="/resources/cjis-guide-2026.pdf" 
+                  download="Notlac_CJIS_Guide_2026.pdf"
+                  className="inline-block bg-[#0B1E36] text-white px-6 py-3 rounded-md font-bold hover:bg-[#475569] transition-colors shadow-md"
+                >
                   Download PDF Framework
-                </button>
+                </a>
               </div>
             </div>
           </div>
