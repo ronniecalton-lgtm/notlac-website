@@ -24,40 +24,40 @@ export default function ContactPage() {
           <form className="space-y-6">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#0B1E36]">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-[#0A0A0A]">Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0B1E36] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0A0A0A] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
                   required 
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#0B1E36]">Official Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-[#0A0A0A]">Official Email</label>
                 <input 
                   type="email" 
                   id="email" 
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0B1E36] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0A0A0A] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
                   required 
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="agency" className="block text-sm font-medium text-[#0B1E36]">Agency / Organization</label>
+              <label htmlFor="agency" className="block text-sm font-medium text-[#0A0A0A]">Agency / Organization</label>
               <input 
                 type="text" 
                 id="agency" 
-                className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0B1E36] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
+                className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0A0A0A] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]" 
                 required 
               />
             </div>
 
             <div>
-              <label htmlFor="service" className="block text-sm font-medium text-[#0B1E36]">Service Interest</label>
+              <label htmlFor="service" className="block text-sm font-medium text-[#0A0A0A]">Service Interest</label>
               <select 
                 id="service" 
-                className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0B1E36] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]"
+                className="mt-1 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium !text-[#0A0A0A] shadow-sm focus:border-[#00D4FF] focus:outline-none focus:ring-2 focus:ring-[#00D4FF]"
               >
                 <option>AI Policy & Governance</option>
                 <option>Secure Implementation</option>
