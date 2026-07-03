@@ -26,7 +26,7 @@ export default function ExpertisePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[#0B1E36] mb-6">Bridging the Reality Gap</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              The biggest failure in public safety AI implementation is the disconnect between theoretical technology and operational reality. Silicon Valley builds tools for ideal conditions; law enforcement operates in high-stress, high-liability realities. Notlac, Inc. was founded to bridge this exact gap, ensuring that NIST compliance and AI governance actually work when deployed to the streets, the dispatch center, and the courtroom.
+              The biggest failure in public safety AI implementation is the disconnect between theoretical technology and operational reality. Silicon Valley builds tools for ideal conditions; law enforcement operates in high-stress, high-liability realities. Notlac, LLC. was founded to bridge this exact gap, ensuring that NIST compliance and AI governance actually work when deployed to the streets, the dispatch center, and the courtroom.
             </p>
           </div>
         </div>
