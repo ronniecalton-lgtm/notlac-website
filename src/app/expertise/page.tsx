@@ -76,15 +76,15 @@ export default function ExpertisePage() {
               <ul className="space-y-4 text-[#475569] font-medium">
                 <li className="flex items-center bg-gray-50 p-3 rounded border border-gray-100">
                   <span className="w-2 h-2 bg-[#0B1E36] rounded-full mr-3"></span>
-                  Motorola Solutions Ecosystem Expertise
+                  Public Safety Ecosystem Expertise
                 </li>
                 <li className="flex items-center bg-gray-50 p-3 rounded border border-gray-100">
                   <span className="w-2 h-2 bg-[#0B1E36] rounded-full mr-3"></span>
-                  Flex, Command Central, & Spillman Deployments
+                  CAD, RMS, and JMS Deployments
                 </li>
                 <li className="flex items-center bg-gray-50 p-3 rounded border border-gray-100">
                   <span className="w-2 h-2 bg-[#0B1E36] rounded-full mr-3"></span>
-                  Mobile Video & Digital Evidence Management
+                   Body-Worn Camera, In Car Camera, and Digital Evidence Management Systems
                 </li>
               </ul>
             </div>
