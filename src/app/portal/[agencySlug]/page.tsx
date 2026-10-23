@@ -1,16 +1,8 @@
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-
-interface AgencyPortalProps {
-  params: Promise<{
-    agencySlug: string;
-  }>;
-}
+import { useParams, useRouter } from 'next/navigation';
 
 function formatAgencyTitle(slug: string): string {
   const parts = slug.split('-');
@@ -23,15 +15,35 @@ function formatAgencyTitle(slug: string): string {
   return slug.replace(/-/g, ' ').toUpperCase();
 }
 
-export default async function AgencyDashboard({ params }: AgencyPortalProps) {
-  const { agencySlug } = await params;
+export default function AgencyDashboard() {
+  const params = useParams();
+  const router = useRouter();
+  const agencySlug = (params?.agencySlug as string) || 'notlac-pd-az';
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  // Strict Zero-Trust Session Verification at Request Time
-  const cookieStore = await cookies();
-  const sessionToken = cookieStore.get('notlac_session')?.value;
+  useEffect(() => {
+    // Check for active session cookie
+    const hasSession = document.cookie
+      .split('; ')
+      .some((row) => row.startsWith('notlac_session='));
 
-  if (!sessionToken) {
-    redirect(`/login?redirect=/portal/${agencySlug}`);
+    if (!hasSession) {
+      router.replace(`/login?redirect=/portal/${agencySlug}`);
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [agencySlug, router]);
+
+  // Prevent UI flashing prior to auth verification
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-[#0B1E36] flex flex-col items-center justify-center text-white p-6">
+        <div className="w-8 h-8 border-2 border-[#00D4FF] border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-xs font-mono tracking-wider uppercase text-slate-400">
+          Verifying CJIS Area 5 Credentials...
+        </p>
+      </div>
+    );
   }
 
   const formattedAgency = formatAgencyTitle(agencySlug);
@@ -93,12 +105,15 @@ export default async function AgencyDashboard({ params }: AgencyPortalProps) {
             <span className="text-xs text-slate-300 font-mono bg-slate-800 px-3 py-1.5 rounded border border-slate-700">
               Tenant: {agencySlug}
             </span>
-            <Link
-              href="/login"
+            <button
+              onClick={() => {
+                document.cookie = 'notlac_session=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                router.replace('/login');
+              }}
               className="text-xs text-slate-400 hover:text-white transition-colors"
             >
               Sign Out
-            </Link>
+            </button>
           </div>
         </div>
       </header>
