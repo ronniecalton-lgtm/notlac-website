@@ -118,14 +118,6 @@ export default function LoginPage() {
             </Link>
           </div>
         </div>
-
-        {/* SECURITY BADGE */}
-        <div className="mt-6 flex items-center justify-center text-xs text-slate-500">
-          <div className="flex items-center gap-1.5">
-            <span className="text-emerald-500 font-bold">✓</span>
-            <span>TLS 1.3 / AES-256 Encrypted Session</span>
-          </div>
-        </div>
       </section>
     </div>
   );
