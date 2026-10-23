@@ -112,8 +112,7 @@ export default function ConsultationPage() {
                     name="name" 
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Chief John Doe"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white placeholder-slate-400 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
                     required 
                   />
                 </div>
@@ -128,8 +127,7 @@ export default function ConsultationPage() {
                     name="agency" 
                     value={formData.agency}
                     onChange={handleChange}
-                    placeholder="County Sheriff's Office / Police Dept"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white placeholder-slate-400 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
                     required 
                   />
                 </div>
@@ -146,8 +144,7 @@ export default function ConsultationPage() {
                     name="email" 
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="jdoe@agency.gov"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white placeholder-slate-400 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
                     required 
                   />
                 </div>
@@ -162,8 +159,7 @@ export default function ConsultationPage() {
                     name="phone" 
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(555) 012-3456"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white placeholder-slate-400 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium" 
                   />
                 </div>
               </div>
@@ -208,8 +204,7 @@ export default function ConsultationPage() {
                   rows={4} 
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Outline your agency's current CAD/RMS environment, active vendor evaluations, or training schedule goals..."
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white placeholder-slate-400 focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium resize-none" 
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 bg-white focus:border-[#00D4FF] focus:ring-2 focus:ring-[#00D4FF]/20 outline-none transition-all text-sm font-medium resize-none" 
                   required
                 ></textarea>
               </div>
