@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -87,6 +88,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* 4. THE REALITY GAP (WHY US) */}
       <section className="bg-[#0B1E36] text-white py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -117,14 +119,16 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            {/* Visual Placeholder */}
-            <div className="relative h-full min-h-[400px] rounded-xl overflow-hidden border border-[#475569]/50 bg-[#475569]/10 flex items-center justify-center shadow-2xl">
-               <div className="text-center p-8">
-                 <div className="w-16 h-16 border-2 border-[#00D4FF] rounded-full flex items-center justify-center mx-auto mb-4 opacity-50 animate-pulse">
-                   <span className="text-[#00D4FF] text-xl font-bold">AI</span>
-                 </div>
-                 <p className="text-gray-400 font-medium uppercase tracking-widest text-sm">[Operational Environment Image]</p>
-               </div>
+            
+            {/* Operational Environment Image */}
+            <div className="relative w-full h-[450px] rounded-xl overflow-hidden border border-[#475569]/50 shadow-2xl">
+              <Image
+                src="/operations-room.jpg"
+                alt="Public Safety Dispatch and Real-Time Operations Center"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
