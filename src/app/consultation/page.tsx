@@ -136,7 +136,7 @@ export default function ConsultationPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#0B1E36] mb-2">
-                    Official Government Email <span className="text-rose-500">*</span>
+                    Agency Email <span className="text-rose-500">*</span>
                   </label>
                   <input 
                     type="email" 
