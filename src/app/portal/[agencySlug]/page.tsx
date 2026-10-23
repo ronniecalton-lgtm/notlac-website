@@ -1,7 +1,10 @@
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 import React from 'react';
 import Link from 'next/link';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 interface AgencyPortalProps {
   params: Promise<{
@@ -10,7 +13,6 @@ interface AgencyPortalProps {
 }
 
 function formatAgencyTitle(slug: string): string {
-  // Parses "notlac-pd-az" -> "NOTLAC PD (AZ)"
   const parts = slug.split('-');
   if (parts.length >= 3) {
     const state = parts.pop()?.toUpperCase();
@@ -23,6 +25,15 @@ function formatAgencyTitle(slug: string): string {
 
 export default async function AgencyDashboard({ params }: AgencyPortalProps) {
   const { agencySlug } = await params;
+
+  // Strict Zero-Trust Session Verification at Request Time
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get('notlac_session')?.value;
+
+  if (!sessionToken) {
+    redirect(`/login?redirect=/portal/${agencySlug}`);
+  }
+
   const formattedAgency = formatAgencyTitle(agencySlug);
 
   const deliverables = [
