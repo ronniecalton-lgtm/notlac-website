@@ -9,9 +9,21 @@ interface AgencyPortalProps {
   }>;
 }
 
+function formatAgencyTitle(slug: string): string {
+  // Parses "notlac-pd-az" -> "NOTLAC PD (AZ)"
+  const parts = slug.split('-');
+  if (parts.length >= 3) {
+    const state = parts.pop()?.toUpperCase();
+    const entity = parts.pop()?.toUpperCase();
+    const name = parts.join(' ').toUpperCase();
+    return `${name} ${entity} (${state})`;
+  }
+  return slug.replace(/-/g, ' ').toUpperCase();
+}
+
 export default async function AgencyDashboard({ params }: AgencyPortalProps) {
   const { agencySlug } = await params;
-  const agencyName = agencySlug.replace(/-/g, ' ').toUpperCase();
+  const formattedAgency = formatAgencyTitle(agencySlug);
 
   const deliverables = [
     {
@@ -64,11 +76,11 @@ export default async function AgencyDashboard({ params }: AgencyPortalProps) {
                 Authorized Tenant Session
               </span>
             </div>
-            <h1 className="text-2xl font-extrabold tracking-tight">{agencyName}</h1>
+            <h1 className="text-2xl font-extrabold tracking-tight">{formattedAgency}</h1>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-xs text-slate-300 font-mono bg-slate-800 px-3 py-1.5 rounded border border-slate-700">
-              ORI / Tenant ID: {agencySlug}
+              Tenant: {agencySlug}
             </span>
             <Link
               href="/login"
