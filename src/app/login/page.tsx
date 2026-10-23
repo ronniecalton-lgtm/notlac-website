@@ -39,7 +39,7 @@ export default function LoginPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-24 text-slate-900">
       {/* 1. HEADER SECTION */}
-      <section className="bg-[#0B1E36] py-16 relative overflow-hidden text-white">
+      <section className="bg-[#0B1E36] py-16 sm:py-20 relative overflow-hidden text-white">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#00D4FF] rounded-full opacity-10 blur-[120px] pointer-events-none"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-[#00D4FF] text-xs font-semibold tracking-wide uppercase mb-5">
@@ -56,15 +56,10 @@ export default function LoginPage() {
       </section>
 
       {/* 2. AUTHENTICATION CONTAINER */}
-      <section className="max-w-xl mx-auto px-6 lg:px-8 -mt-8 relative z-20">
-        <div className="mb-4 bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 text-xs text-amber-900 flex items-start gap-3">
-          <span className="text-amber-600 font-bold text-base leading-none">⚠</span>
-          <div className="leading-relaxed">
-            <span className="font-bold uppercase tracking-wider">Authorized Use Only:</span> This system is restricted exclusively to authorized agency personnel. All sessions, queries, and cryptographic handshakes are logged in adherence with CJIS Security Policy Area 5 standards.
-          </div>
-        </div>
-
+      <section className="max-w-xl mx-auto px-6 lg:px-8 -mt-10 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 sm:p-10">
+          
+          {/* AUTH TOGGLE */}
           <div className="flex border-b border-slate-200 mb-6 pb-2">
             <button
               type="button"
@@ -133,7 +128,7 @@ export default function LoginPage() {
                   <label htmlFor="password" className="block text-xs font-bold uppercase tracking-wider text-[#0B1E36]">
                     Password <span className="text-rose-500">*</span>
                   </label>
-                  <span className="text-[11px] text-slate-400">CJIS Multi-Character Policy Enforced</span>
+                  <span className="text-[11px] text-slate-400">CJIS Multi-Character Policy</span>
                 </div>
                 <input
                   type="password"
@@ -194,6 +189,7 @@ export default function LoginPage() {
             </div>
           )}
 
+          {/* ONBOARDING & SUPPORT LINK */}
           <div className="mt-8 pt-6 border-t border-slate-100 text-center">
             <p className="text-xs text-slate-500 mb-2">
               Unprovisioned agency or forgotten credentials?
@@ -208,6 +204,7 @@ export default function LoginPage() {
           </div>
         </div>
 
+        {/* FOOTER VERIFICATION CUES */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
           <div className="flex items-center gap-1.5">
             <span className="text-emerald-500 font-bold">✓</span>
